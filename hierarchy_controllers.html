@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="hierarchyApp">
+    <ul>
+        <li>
+            <h1>Example 1</h1>
+            <div ng-controller="hierarchyController">
+                <div>
+                    <h1>The simplest adding machine ever</h1>
+                    <button ng-click="add()">Add</button>
+                    <a
+                        href="javascript:;"
+                        ng-click="subtract()">Subtract</a>
+                    <div>Current counter: {{ counter }}</div>
+                </div>
+
+                <h2>{{ person }}</h2>
+                <p>and their name</p>
+                <h3>Name is {{ person.name }}</h3>
+            </div>
+        </li>
+        <li>
+            <h1>Example 2</h1>
+            <div ng-controller="ParentController">
+                <div>{{ person }}</div>
+                <br>
+                <div ng-controller="ChildController">
+                    <div>
+                        <a href="" ng-click="sayHello()">Say hello</a>
+                        {{ person }}
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+
+    <script src="bower_components/angular.js"></script>
+    <script src="angular/apps/hierarchy.app.js"></script>
+    <script src="angular/ctrls/hierarchy.ctrl.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="expressionApp">
+    <ul>
+        <li>
+            <h1>Example 1 expression</h1>
+            <div ng-controller="expressionController">
+                <input
+                    type="text"
+                    ng-model="expr"
+                    placeholder="Enter an expression">
+                <div>
+                    {{ parsedValue}}
+                </div>
+            </div>
+        </li>
+        <li>
+            <h2>Example 2 interpolating a string</h2>
+            <div ng-controller="interpolateController">
+                <input
+                        ng-model="to"
+                        type="email"
+                        placeholder="Recipient">
+                <textarea
+                        ng-model="emailBody"
+                        name=""
+                        id=""
+                        cols="30"
+                        rows="10"></textarea>
+                <pre>__previewText__</pre>
+            </div>
+        </li>
+    </ul>
+
+    <script src="bower_components/angular.js"></script>
+    <script src="angular/apps/expression.app.js"></script>
+    <script src="angular/factory/email-parser.js"></script>
+    <script src="angular/ctrls/expression.ctrl.js"></script>
+
+</body>
+</html>

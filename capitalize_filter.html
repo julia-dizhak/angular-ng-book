@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="filterApp">
+    <!--<div ng-controller="filterController">-->
+        <input type="text"
+               ng-model="name">
+        <h1> {{ name | capitalize}}</h1>
+    <!--</div>-->
+
+    <script src="bower_components/angular.js"></script>
+    <script src="angular/apps/filter.app.js"></script>
+    <script src="angular/filters/capitalize.filter.js"></script>
+</body>
+</html>

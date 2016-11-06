@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .row {
+            margin: 0 0 20px 0;
+        }
+        .item {
+            margin: 0 0 20px 0;
+        }
+        textarea {
+            cursor: pointer;
+        }
+        textarea[disabled] {
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body ng-app="directiveApp">
+    <ul>
+        <li>
+            <h1>My first directive</h1>
+            <p>here </p>
+            <div first-directive>Hello</div>
+        </li>
+        <li>
+            <h2>ng-init</h2>
+            <p ng-init="greeting = 'Hello my friend'">
+                The greeting is {{ greeting }}
+            </p>
+        </li>
+        <li>
+            <div ng-controller="directiveController">
+                <h2>Declaring our directive with expression</h2>
+                <!--<div-->
+                    <!--first-directive="someExpression"-->
+                    <!--linkUrl="http://google.com"-->
+                    <!--text="click me to go to google">-->
+                <!--</div>-->
+
+                <!--<div class="item">-->
+                    <!--<div-->
+                        <!--first-directive="someExpression"-->
+                        <!--some-attr="{{ 'http://' + 'google.com' }}"-->
+                        <!--text="click me to go to google">-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+                <!--<div class="item">-->
+                    <!--<input-->
+                    <!--type="text"-->
+                    <!--ng-model="linkUrl">-->
+                    <!--<div>-->
+                        <!--<div-->
+                            <!--first-directive="someExpression"-->
+                            <!--some-attr="{{ linkUrl }}"-->
+                            <!--text="click me to go to google">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <div class="item">
+                    <input
+                    type="text"
+                    ng-model="linkUrl">
+                    <div>
+                        bla - {{ linkUrl }}
+                        <div
+                            first-directive="someExpression"
+                            some-attr="linkUrl"
+                            text="click me to go to google">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </li>
+        <li>
+            <h2>Basic ng Attribute directives</h2>
+            <div>
+                <h3>ng-disabled</h3>
+                <div>
+                    <input
+                            type="text"
+                            ng-model="disabled"
+                            placeholder="type to enable">
+                    <button
+                        ng-model="button"
+                        ng-disabled="!disabled">
+                        a button
+                    </button>
+                    <div>
+                        <textarea
+                            ng-disabled="isDisabled"
+                            name=""
+                            id=""
+                            cols="30"
+                            rows="10">
+                            wait 5 seconds
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>ng-readonly</h3>
+                <input type="text"
+                       ng-model="someProperty">
+                <br>
+                <input type="text"
+                       ng-readonly="someProperty"
+                       value="Some text here"/>
+            </div>
+            <div>
+                <h3>ng-checked</h3>
+                <label>anotherProperty = {{anotherProperty}}</label>
+                <input
+                        type="checkbox"
+                        ng-checked="anotherProperty"
+                        ng-init="anotherProperty = false"
+                        ng-model="anotherProperty">
+            </div>
+            <div>
+                <h3>ng-selected</h3>
+                <label>Select Two Fish:</label>
+                <input
+                        type="checkbox"
+                        ng-model="isTwoFish"><br/>
+                <select>
+                    <option>One Fish</option>
+                    <option ng-selected="isTwoFish">Two Fish</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+
+    <script src="bower_components/angular.js"></script>
+    <script src="angular/apps/first-directive.app.js"></script>
+
+     <script src="angular/directives/first-directive.js"></script>
+    <!--<script src="angular/directives/ensure-unique.js"></script>-->
+    <!--<script src="angular/directives/focus.js"></script>-->
+
+    <script src="angular/ctrls/first-directive.ctrl.js"></script>
+
+
+</body>
+</html>
