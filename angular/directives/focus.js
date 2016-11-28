@@ -4,9 +4,8 @@ app.directive('ngFocus', function() {
         require: 'ngModel',
         link: function(scope, element, attrs, ctrl) {
             ctrl.$focused = false;
-            alert('t');
+
             element.bind('focus', function(evt) {
-                alert('t');
                 element.addClass('focus');
                 scope.$apply(function(){
                     ctrl.$focused = true;
