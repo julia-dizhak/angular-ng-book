@@ -137,19 +137,21 @@
             </div>
         </li>
         <li>
-            <h2>Directives with child scope</h2>
-            <!--<div>-->
-                <!--<input type="text"-->
-                       <!--ng-model="person.name">-->
-                <!--<div ng-switch-->
-                     <!--on="person.name"></div>-->
-                <!--<div ng-switch-default>-->
-                     <!--and the winner is-->
-                <!--</div>-->
-                <!--<div ng-switch-when="Julia">-->
-                    <!--{{ person.name }}-->
-                <!--</div>-->
-            <!--</div>-->
+            <h3>ng-change</h3>
+            <div ng-controller="EquationController">
+                <input
+                        type="text"
+                    ng-model="equation.x"
+                    ng-change="change()">
+                <code> {{ equation.output }}</code>
+            </div>
+        </li>
+        <li>
+            <h3>ng-form</h3>
+            <div>
+                
+
+            </div>
 
         </li>
     </ul>
@@ -162,7 +164,6 @@
     <!--<script src="angular/directives/focus.js"></script>-->
 
     <script src="angular/ctrls/first-directive.ctrl.js"></script>
-
-
+    <script src="angular/ctrls/equation.ctrl.js"></script>
 </body>
 </html>
