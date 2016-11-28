@@ -16,6 +16,13 @@
         textarea[disabled] {
             cursor: not-allowed;
         }
+
+        input.ng-invalid {
+            border: 1px solid red;
+        }
+        input.ng-valid {
+            border: 1px solid green;
+        }
     </style>
 </head>
 <body ng-app="directiveApp">
@@ -149,10 +156,35 @@
         <li>
             <h3>ng-form</h3>
             <div>
-                
-
+                <form
+                        name="signup_form"
+                        ng-controller="FormController"
+                        ng-submit="submitForm()"
+                        novalidate>
+                    <div
+                            ng-repeat="field in fields"
+                            ng-form="signup_form_input">
+                        <input
+                                type="text"
+                                name="dynamic_input"
+                                ng-required="field.isRequired"
+                                ng-model="field.name"
+                                placeholder="{{field.placeholder}}">
+                        <div
+                                ng-show="signup_form_input.dynamic_input.$dirty && signup_form_input.dynamic_input.$invalid">
+                            <span
+                                    class="error"
+                                    ng-show="signup_form_input.dynamic_input.$error.required">
+                                The field is required.
+                            </span>
+                        </div>
+                    </div>
+                    <button
+                            type="submit"
+                            ng-disabled="signup_form.$invalid"> Submit All
+                    </button>
+                </form>
             </div>
-
         </li>
     </ul>
 
@@ -165,5 +197,6 @@
 
     <script src="angular/ctrls/first-directive.ctrl.js"></script>
     <script src="angular/ctrls/equation.ctrl.js"></script>
+    <script src="angular/ctrls/form.ctrl.js"></script>
 </body>
 </html>
